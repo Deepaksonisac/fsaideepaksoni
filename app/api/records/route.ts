@@ -1,13 +1,55 @@
-import {env} from 'cloudflare:workers';
-import {recordsSchema} from '../../../db/schema';
-import {clean,row,type Input} from './logic';
+import {clean, row, type Input} from './logic';
 
-const db=()=>env.DB as D1Database;
-// The schema/index only need to be created once per isolate, not on every
-// request — re-running DDL on every request added avoidable latency.
-let readyPromise:Promise<void>|null=null;
-function ready(){return readyPromise??=(async()=>{await db().prepare(recordsSchema).run();await db().prepare('CREATE INDEX IF NOT EXISTS idx_records_fy_status ON records(fy,status)').run()})().catch(e=>{readyPromise=null;throw e})}
-export async function GET(){await ready();const result=await db().prepare('SELECT id,date,fy,month,quarter,status,remarks,name,mobile,email,designation,id_no,other_details,member,sponsorship,expenditure,pacc,ad,event,training,article,st,ap,project,nominations FROM records ORDER BY date,id').all();return Response.json((result.results||[]).map(r=>row(r as Record<string,unknown>)))}
-export async function POST(request:Request){try{await ready();const v=clean(await request.json() as Input);const id=`REC-${crypto.randomUUID().slice(0,8).toUpperCase()}`;await db().prepare('INSERT INTO records (id,date,fy,month,quarter,status,remarks,name,mobile,email,designation,id_no,other_details,member,sponsorship,expenditure,pacc,ad,event,training,article,st,ap,project,nominations) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)').bind(id,v.date,v.fy,v.month,v.quarter,v.status,v.remarks,v.name,v.mobile,v.email,v.designation,v.idNo,v.otherDetails,v.member,v.sponsorship,v.expenditure,v.pacc,v.ad,v.event,v.training,v.article,v.st,v.ap,v.project,v.nominations).run();return Response.json({id,...v},{status:201})}catch(e){return Response.json({error:e instanceof Error?e.message:'Invalid record'},{status:400})}}
-export async function PUT(request:Request){try{await ready();const input=await request.json() as Input;if(!input.id)throw new Error('Record ID required');const v=clean(input);const result=await db().prepare('UPDATE records SET date=?,fy=?,month=?,quarter=?,status=?,remarks=?,name=?,mobile=?,email=?,designation=?,id_no=?,other_details=?,member=?,sponsorship=?,expenditure=?,pacc=?,ad=?,event=?,training=?,article=?,st=?,ap=?,project=?,nominations=?,updated_at=CURRENT_TIMESTAMP WHERE id=?').bind(v.date,v.fy,v.month,v.quarter,v.status,v.remarks,v.name,v.mobile,v.email,v.designation,v.idNo,v.otherDetails,v.member,v.sponsorship,v.expenditure,v.pacc,v.ad,v.event,v.training,v.article,v.st,v.ap,v.project,v.nominations,input.id).run();if(!result.meta.changes)return Response.json({error:'Record not found'},{status:404});return Response.json({id:input.id,...v})}catch(e){return Response.json({error:e instanceof Error?e.message:'Invalid record'},{status:400})}}
-export async function DELETE(request:Request){await ready();const id=new URL(request.url).searchParams.get('id');if(!id)return Response.json({error:'Record ID required'},{status:400});const result=await db().prepare('DELETE FROM records WHERE id=?').bind(id).run();if(!result.meta.changes)return Response.json({error:'Record not found'},{status:404});return Response.json({ok:true})}
+export const runtime = 'nodejs';
+
+type StoredRecord = {id: string} & ReturnType<typeof clean>;
+
+declare global {
+	// Keeps local development and warm Vercel instances from losing records between requests.
+	var fsaiRecords: StoredRecord[] | undefined;
+}
+
+const records = () => (globalThis.fsaiRecords ??= []);
+const publicRow = (record: StoredRecord) => row({
+	...record,
+	id_no: record.idNo,
+	other_details: record.otherDetails,
+});
+
+export async function GET() {
+	return Response.json(records().toSorted((a, b) => a.date.localeCompare(b.date) || a.id.localeCompare(b.id)).map(publicRow));
+}
+
+export async function POST(request: Request) {
+	try {
+		const value = clean(await request.json() as Input);
+		const record = {id: `REC-${crypto.randomUUID().slice(0, 8).toUpperCase()}`, ...value};
+		records().push(record);
+		return Response.json(publicRow(record), {status: 201});
+	} catch (error) {
+		return Response.json({error: error instanceof Error ? error.message : 'Invalid record'}, {status: 400});
+	}
+}
+
+export async function PUT(request: Request) {
+	try {
+		const input = await request.json() as Input;
+		if (!input.id) throw new Error('Record ID required');
+		const index = records().findIndex(record => record.id === input.id);
+		if (index < 0) return Response.json({error: 'Record not found'}, {status: 404});
+		const record = {id: input.id, ...clean(input)};
+		records()[index] = record;
+		return Response.json(publicRow(record));
+	} catch (error) {
+		return Response.json({error: error instanceof Error ? error.message : 'Invalid record'}, {status: 400});
+	}
+}
+
+export async function DELETE(request: Request) {
+	const id = new URL(request.url).searchParams.get('id');
+	if (!id) return Response.json({error: 'Record ID required'}, {status: 400});
+	const index = records().findIndex(record => record.id === id);
+	if (index < 0) return Response.json({error: 'Record not found'}, {status: 404});
+	records().splice(index, 1);
+	return Response.json({ok: true});
+}
