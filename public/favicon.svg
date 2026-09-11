@@ -1,18 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="FSAI favicon">
   <defs>
-    <linearGradient id="f-icon-flame" x1="0" x2="1">
-      <stop offset="0%" stop-color="#ffe07a"/>
-      <stop offset="35%" stop-color="#ffc92f"/>
-      <stop offset="70%" stop-color="#ff8d1f"/>
-      <stop offset="100%" stop-color="#ef4438"/>
+    <linearGradient id="f-icon-flame" x1="0" x2="0" y1="1" y2="0">
+      <stop offset="0%" stop-color="#ef4438"/>
+      <stop offset="40%" stop-color="#ff8d1f"/>
+      <stop offset="75%" stop-color="#ffc92f"/>
+      <stop offset="100%" stop-color="#ffe07a"/>
     </linearGradient>
   </defs>
-  <rect width="64" height="64" rx="32" fill="#f5f5f4"/>
-  <path d="M32 8 L18 42 L46 42 Z" fill="none" stroke="#3a3a3a" stroke-width="2.2" stroke-linejoin="round"/>
-  <path d="M32 12 L22 38 L42 38 Z" fill="none" stroke="#3a3a3a" stroke-width="1.6" opacity="0.9"/>
-  <rect x="15" y="18" width="34" height="16" fill="#ef4438" stroke="#3a3a3a" stroke-width="1.8"/>
-  <rect x="18" y="21" width="28" height="10" fill="none" stroke="#3a3a3a" stroke-width="1.4"/>
-  <path d="M32 23 C35 17 39 15 45 17 C49 18 52 21 52 26 C53 31 51 35 47 38 C43 41 39 42 35 41 C33 38 31 34 32 23 Z" fill="url(#f-icon-flame)"/>
-  <circle cx="32" cy="30" r="8" fill="none" stroke="#3a3a3a" stroke-width="1.5" opacity="0.9"/>
-  <path d="M32 39 C30 37 26 35 23 36 C21 37 20 39 19 41 L45 41 C44 39 43 37 41 36 C38 35 34 37 32 39 Z" fill="#1e9d63"/>
+  <rect width="64" height="64" rx="32" fill="#ffffff"/>
+
+  <!-- red corner peeking top-left -->
+  <path d="M14 14 L34 14 L14 34 Z" fill="#ef4438"/>
+  <!-- green corner peeking bottom-right -->
+  <path d="M50 50 L30 50 L50 30 Z" fill="#1e9d63"/>
+
+  <!-- sketchy square frame -->
+  <rect x="14" y="14" width="36" height="36" fill="none" stroke="#2b2b2b" stroke-width="2.2" stroke-linejoin="round"/>
+
+  <!-- sketchy triangle frame -->
+  <path d="M32 8 L12 44 L52 44 Z" fill="none" stroke="#2b2b2b" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- sketchy circle frame -->
+  <circle cx="32" cy="32" r="17" fill="#ffffff" stroke="#2b2b2b" stroke-width="2.2"/>
+
+  <!-- flame -->
+  <path d="M32 20 C29 26 25 29 25 35 C25 40.5 28.1 44 32 44 C35.9 44 39 40.5 39 35 C39 32 37.5 30 36 31.5 C36.5 27 35 22.5 32 20 Z" fill="url(#f-icon-flame)"/>
 </svg>
