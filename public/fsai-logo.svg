@@ -1,58 +1,67 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" role="img" aria-label="FSAI logo">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 460" role="img" aria-label="FSAI logo">
   <defs>
-    <linearGradient id="flameGrad" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0%" stop-color="#ffeb7a"/>
-      <stop offset="16%" stop-color="#ffd54d"/>
-      <stop offset="42%" stop-color="#ffb000"/>
-      <stop offset="70%" stop-color="#ff7d1f"/>
-      <stop offset="100%" stop-color="#ef3a2b"/>
+    <linearGradient id="fsai-flame" x1="0" x2="0" y1="1" y2="0">
+      <stop offset="0%" stop-color="#e2351f"/>
+      <stop offset="35%" stop-color="#f47521"/>
+      <stop offset="70%" stop-color="#fcaf1c"/>
+      <stop offset="100%" stop-color="#ffdd33"/>
     </linearGradient>
-    <linearGradient id="flameCore" x1="0" x2="0" y1="0" y2="1">
-      <stop offset="0%" stop-color="#fff3b2"/>
-      <stop offset="50%" stop-color="#ffca3c"/>
-      <stop offset="100%" stop-color="#f57c19"/>
+    <linearGradient id="fsai-line-red" x1="0" x2="1">
+      <stop offset="0%" stop-color="#e2351f"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+    <linearGradient id="fsai-line-green" x1="0" x2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#3f9c4c"/>
     </linearGradient>
   </defs>
 
-  <circle cx="600" cy="600" r="470" fill="#f4f4f2"/>
-  <circle cx="600" cy="600" r="450" fill="none" stroke="#3a3a3a" stroke-width="15" opacity="0.9"/>
+  <rect width="400" height="460" fill="#ffffff"/>
 
-  <path d="M600 250 L370 760 L830 760 Z" fill="none" stroke="#3d3d3d" stroke-width="16" stroke-linejoin="round"/>
-  <path d="M600 300 L425 705 L775 705 Z" fill="none" stroke="#3d3d3d" stroke-width="10" opacity="0.9"/>
+  <!-- red corner block, top-left, clipped by triangle edge -->
+  <path d="M100 100 L225 100 L100 225 Z" fill="#e2351f"/>
+  <!-- green corner block, bottom-right, clipped by triangle edge -->
+  <path d="M300 300 L175 300 L300 175 Z" fill="#3f9c4c"/>
 
-  <path d="M290 320 H910 V750 H290 Z" fill="#ef4438" stroke="#3b3b3b" stroke-width="14"/>
-  <path d="M340 377 H860 V690 H340 Z" fill="none" stroke="#3b3b3b" stroke-width="11" opacity="0.9"/>
+  <!-- sketchy square, doubled strokes with overshoot corners -->
+  <path d="M96 100 L232 100 L232 236" fill="none" stroke="#2b2b2b" stroke-width="5" stroke-linecap="round"/>
+  <path d="M98 236 L232 236 L232 98" fill="none" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round" opacity="0.85"/>
+  <path d="M96 98 L96 236 L236 236" fill="none" stroke="#2b2b2b" stroke-width="5" stroke-linecap="round"/>
+  <path d="M262 96 L96 96 L96 232" fill="none" stroke="#2b2b2b" stroke-width="3.5" stroke-linecap="round" opacity="0.8"/>
 
-  <g fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M360 560 L600 330 L840 560" stroke-width="10" opacity="0.8"/>
-    <path d="M410 610 L600 400 L790 610" stroke-width="10" opacity="0.75"/>
-    <path d="M455 650 L600 475 L745 650" stroke-width="10" opacity="0.68"/>
-    <path d="M315 320 L600 320 L600 750" stroke-width="12" opacity="0.82"/>
-    <path d="M885 320 L600 320 L600 750" stroke-width="12" opacity="0.82"/>
-  </g>
+  <!-- sketchy triangle, apex above square, base past bottom -->
+  <path d="M204 62 L82 252 L326 252 Z" fill="none" stroke="#2b2b2b" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M204 74 L94 246 L318 244 Z" fill="none" stroke="#2b2b2b" stroke-width="2" stroke-linejoin="round" opacity="0.6"/>
 
-  <path d="M600 420 C585 305 515 260 420 298 C380 315 343 347 320 404 C292 467 298 533 348 582 C389 623 447 636 505 615 C530 606 555 594 578 588 C553 646 505 690 444 712 C383 734 308 712 262 666 C190 598 183 470 258 394 C314 332 418 312 504 352 C535 366 566 387 600 420 Z" fill="#f7f3ea" opacity="0.18"/>
+  <!-- sketchy circle, drawn as two overlapping arcs -->
+  <circle cx="204" cy="204" r="104" fill="#ffffff" stroke="#2b2b2b" stroke-width="5"/>
+  <circle cx="206" cy="202" r="102" fill="none" stroke="#2b2b2b" stroke-width="2" opacity="0.5"/>
 
-  <g>
-    <path d="M600 380 C687 435 758 493 774 586 C789 678 744 755 662 783 C592 807 502 791 447 738 C401 694 385 635 410 578 C432 524 487 503 536 523 C514 470 491 435 452 400 C419 370 427 316 478 292 C520 274 568 286 600 380 Z" fill="url(#flameGrad)"/>
-    <path d="M554 470 C598 480 640 512 654 564 C669 620 638 672 589 692 C546 710 476 708 443 680 C429 668 418 654 411 640 C433 620 454 583 510 553 C529 542 542 511 554 470 Z" fill="url(#flameCore)" opacity="0.72"/>
-    <path d="M560 485 C608 537 635 595 627 654 C619 709 585 760 534 788 C483 816 420 812 370 779 C398 728 431 679 486 642 C523 615 540 563 560 485 Z" fill="#ffaf1a" opacity="0.68"/>
-    <path d="M575 525 C620 579 642 642 633 700" stroke="#fff9d4" stroke-width="12" stroke-linecap="round" opacity="0.64"/>
-  </g>
+  <!-- trademark R -->
+  <circle cx="332" cy="118" r="15" fill="none" stroke="#2b2b2b" stroke-width="1.6"/>
+  <text x="332" y="124" font-family="Georgia, serif" font-size="15" fill="#2b2b2a" text-anchor="middle">R</text>
 
-  <path d="M584 385 C682 386 760 345 822 302" fill="none" stroke="#3d3d3d" stroke-width="15" stroke-linecap="round" opacity="0.8"/>
-  <path d="M584 385 C497 386 429 347 365 302" fill="none" stroke="#3d3d3d" stroke-width="15" stroke-linecap="round" opacity="0.8"/>
+  <!-- flame: three-tongue shape -->
+  <path d="M204 116
+           C 190 150, 176 172, 176 200
+           C 176 224, 190 242, 208 248
+           C 200 230, 202 210, 214 196
+           C 220 216, 214 230, 222 244
+           C 240 236, 250 216, 246 196
+           C 258 210, 260 228, 250 244
+           C 268 234, 276 212, 268 190
+           C 262 168, 244 158, 240 138
+           C 236 158, 224 162, 220 148
+           C 216 168, 200 160, 204 116 Z"
+        fill="url(#fsai-flame)"/>
 
-  <circle cx="600" cy="590" r="155" fill="none" stroke="#3d3d3d" stroke-width="14" stroke-linecap="round" stroke-dasharray="3 24" opacity="0.9"/>
+  <!-- FSAI text -->
+  <text x="204" y="352" font-family="Georgia, serif" font-weight="700" font-size="58"
+        fill="#e8503f" text-anchor="middle" letter-spacing="3">FSAI</text>
 
-  <g fill="#ef4438" font-family="Arial, Helvetica, sans-serif" font-weight="700">
-    <text x="600" y="955" text-anchor="middle" font-size="210" letter-spacing="-12">FSAI</text>
-  </g>
-
-  <path d="M285 1015 H915" stroke="#3d3d3d" stroke-width="10" opacity="0.82"/>
-  <path d="M285 1045 H915" stroke="#1f9d64" stroke-width="12" opacity="0.95"/>
-
-  <g transform="translate(930 290)">
-    <text x="0" y="0" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700" fill="#2c2c2c">®</text>
-  </g>
+  <!-- fading tricolor underline -->
+  <rect x="120" y="374" width="84" height="3" fill="url(#fsai-line-red)"/>
+  <rect x="204" y="374" width="84" height="3" fill="url(#fsai-line-green)"/>
+  <rect x="90" y="394" width="120" height="2.5" fill="url(#fsai-line-red)"/>
+  <rect x="204" y="394" width="120" height="2.5" fill="url(#fsai-line-green)"/>
 </svg>
