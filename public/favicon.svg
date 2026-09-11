@@ -1,6 +1,18 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M22 19.2727C22 20.779 20.779 22 19.2727 22H14.7273C13.221 22 12 20.779 12 19.2727V12H19.2727C20.779 12 22 13.221 22 14.7273V19.2727Z" fill="#68C4FF"/>
-<path d="M20 2C21.1046 2 22 2.89543 22 4V7C22 8.10457 21.1046 9 20 9H17C15.8954 9 15 8.10457 15 7V4C15 2.89543 15.8954 2 17 2H20Z" fill="#0C79D8"/>
-<path d="M7 15C8.10457 15 9 15.8954 9 17V20C9 21.1046 8.10457 22 7 22H4C2.89543 22 2 21.1046 2 20V17C2 15.8954 2.89543 15 4 15H7Z" fill="#0C79D8"/>
-<path d="M12 12H4.72727C3.22104 12 2 10.779 2 9.27273V4.72727C2 3.22104 3.22104 2 4.72727 2H9.27273C10.779 2 12 3.22104 12 4.72727V12Z" fill="#2E9EFF"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="FSAI favicon">
+  <defs>
+    <linearGradient id="f-icon-flame" x1="0" x2="1">
+      <stop offset="0%" stop-color="#ffe07a"/>
+      <stop offset="35%" stop-color="#ffc92f"/>
+      <stop offset="70%" stop-color="#ff8d1f"/>
+      <stop offset="100%" stop-color="#ef4438"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="32" fill="#f5f5f4"/>
+  <path d="M32 8 L18 42 L46 42 Z" fill="none" stroke="#3a3a3a" stroke-width="2.2" stroke-linejoin="round"/>
+  <path d="M32 12 L22 38 L42 38 Z" fill="none" stroke="#3a3a3a" stroke-width="1.6" opacity="0.9"/>
+  <rect x="15" y="18" width="34" height="16" fill="#ef4438" stroke="#3a3a3a" stroke-width="1.8"/>
+  <rect x="18" y="21" width="28" height="10" fill="none" stroke="#3a3a3a" stroke-width="1.4"/>
+  <path d="M32 23 C35 17 39 15 45 17 C49 18 52 21 52 26 C53 31 51 35 47 38 C43 41 39 42 35 41 C33 38 31 34 32 23 Z" fill="url(#f-icon-flame)"/>
+  <circle cx="32" cy="30" r="8" fill="none" stroke="#3a3a3a" stroke-width="1.5" opacity="0.9"/>
+  <path d="M32 39 C30 37 26 35 23 36 C21 37 20 39 19 41 L45 41 C44 39 43 37 41 36 C38 35 34 37 32 39 Z" fill="#1e9d63"/>
 </svg>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" role="img" aria-label="FSAI logo">
+  <defs>
+    <linearGradient id="flame" x1="0" x2="1">
+      <stop offset="0%" stop-color="#ffe07a"/>
+      <stop offset="25%" stop-color="#ffc92f"/>
+      <stop offset="60%" stop-color="#ff8d1f"/>
+      <stop offset="100%" stop-color="#ef4438"/>
+    </linearGradient>
+    <linearGradient id="flameGlow" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#ffd966"/>
+      <stop offset="70%" stop-color="#ff8d1f"/>
+      <stop offset="100%" stop-color="#d93d2b"/>
+    </linearGradient>
+  </defs>
+
+  <circle cx="450" cy="450" r="350" fill="#f5f5f4"/>
+  <circle cx="450" cy="450" r="335" fill="none" stroke="#3d3d3d" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+
+  <path d="M450 185 L245 570 L655 570 Z" fill="none" stroke="#3f3f3f" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M450 220 L300 515 L600 515 Z" fill="none" stroke="#3f3f3f" stroke-width="12" opacity="0.9"/>
+
+  <rect x="180" y="240" width="540" height="300" fill="#ef4438" stroke="#3d3d3d" stroke-width="14"/>
+  <rect x="230" y="290" width="440" height="245" fill="none" stroke="#3d3d3d" stroke-width="12" opacity="0.9"/>
+
+  <path d="M450 325 C440 255 390 220 320 240 C282 253 251 289 240 330 C225 377 236 418 274 448 C310 477 350 468 389 445 C408 433 420 431 431 432 C412 471 365 507 309 514 C242 522 180 487 165 431 C151 378 179 313 228 279 C274 247 353 235 405 270 C425 283 440 299 450 325 Z" fill="#f6f2eb" opacity="0.18"/>
+
+  <g>
+    <path d="M450 268 C517 332 575 379 585 450 C596 533 544 595 470 607 C411 617 348 591 316 545 C281 496 281 441 332 408 C358 390 390 379 431 382 C392 357 375 332 361 308 C344 280 349 248 389 229 C411 219 433 223 450 268 Z" fill="url(#flame)"/>
+    <path d="M420 335 C455 342 486 370 494 401 C504 442 472 481 433 489 C413 493 388 492 368 482 C358 477 352 470 345 464 C353 445 364 417 391 399 C403 391 419 378 420 335 Z" fill="url(#flameGlow)" opacity="0.82"/>
+    <path d="M457 353 C490 375 517 403 520 439 C523 477 492 509 451 516 C421 521 384 514 357 497 C373 470 390 440 411 422 C427 408 442 394 457 353 Z" fill="#ffba3d" opacity="0.7"/>
+    <path d="M430 389 C443 419 454 454 448 487" stroke="#fff5d6" stroke-width="10" stroke-linecap="round" opacity="0.55"/>
+  </g>
+
+  <path d="M450 312 C522 302 566 273 606 243" fill="none" stroke="#3d3d3d" stroke-width="12" stroke-linecap="round" opacity="0.8"/>
+  <path d="M450 312 C374 303 332 273 295 243" fill="none" stroke="#3d3d3d" stroke-width="12" stroke-linecap="round" opacity="0.8"/>
+
+  <circle cx="450" cy="432" r="110" fill="none" stroke="#3d3d3d" stroke-width="14" stroke-linecap="round" stroke-dasharray="1 18" opacity="0.9"/>
+
+  <g fill="#ef4438" font-family="Arial, Helvetica, sans-serif" font-weight="700" letter-spacing="-8">
+    <text x="450" y="725" text-anchor="middle" font-size="150">FSAI</text>
+  </g>
+  <path d="M205 765 H695" stroke="#3d3d3d" stroke-width="8" opacity="0.8"/>
+  <path d="M205 785 H695" stroke="#2faa68" stroke-width="9" opacity="0.95"/>
+</svg>
