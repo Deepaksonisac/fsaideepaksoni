@@ -1,28 +1,67 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="FSAI favicon">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 460" role="img" aria-label="FSAI logo">
   <defs>
-    <linearGradient id="f-icon-flame" x1="0" x2="0" y1="1" y2="0">
-      <stop offset="0%" stop-color="#ef4438"/>
-      <stop offset="40%" stop-color="#ff8d1f"/>
-      <stop offset="75%" stop-color="#ffc92f"/>
-      <stop offset="100%" stop-color="#ffe07a"/>
+    <linearGradient id="fsai-flame" x1="0" x2="0" y1="1" y2="0">
+      <stop offset="0%" stop-color="#e2351f"/>
+      <stop offset="35%" stop-color="#f47521"/>
+      <stop offset="70%" stop-color="#fcaf1c"/>
+      <stop offset="100%" stop-color="#ffdd33"/>
+    </linearGradient>
+    <linearGradient id="fsai-line-red" x1="0" x2="1">
+      <stop offset="0%" stop-color="#e2351f"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+    <linearGradient id="fsai-line-green" x1="0" x2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#3f9c4c"/>
     </linearGradient>
   </defs>
-  <rect width="64" height="64" rx="32" fill="#ffffff"/>
 
-  <!-- red corner peeking top-left -->
-  <path d="M14 14 L34 14 L14 34 Z" fill="#ef4438"/>
-  <!-- green corner peeking bottom-right -->
-  <path d="M50 50 L30 50 L50 30 Z" fill="#1e9d63"/>
+  <rect width="400" height="460" fill="#ffffff"/>
 
-  <!-- sketchy square frame -->
-  <rect x="14" y="14" width="36" height="36" fill="none" stroke="#2b2b2b" stroke-width="2.2" stroke-linejoin="round"/>
+  <!-- red corner block, top-left, clipped by triangle edge -->
+  <path d="M100 100 L225 100 L100 225 Z" fill="#e2351f"/>
+  <!-- green corner block, bottom-right, clipped by triangle edge -->
+  <path d="M300 300 L175 300 L300 175 Z" fill="#3f9c4c"/>
 
-  <!-- sketchy triangle frame -->
-  <path d="M32 8 L12 44 L52 44 Z" fill="none" stroke="#2b2b2b" stroke-width="2" stroke-linejoin="round"/>
+  <!-- sketchy square, doubled strokes with overshoot corners -->
+  <path d="M96 100 L232 100 L232 236" fill="none" stroke="#2b2b2b" stroke-width="5" stroke-linecap="round"/>
+  <path d="M98 236 L232 236 L232 98" fill="none" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round" opacity="0.85"/>
+  <path d="M96 98 L96 236 L236 236" fill="none" stroke="#2b2b2b" stroke-width="5" stroke-linecap="round"/>
+  <path d="M262 96 L96 96 L96 232" fill="none" stroke="#2b2b2b" stroke-width="3.5" stroke-linecap="round" opacity="0.8"/>
 
-  <!-- sketchy circle frame -->
-  <circle cx="32" cy="32" r="17" fill="#ffffff" stroke="#2b2b2b" stroke-width="2.2"/>
+  <!-- sketchy triangle, apex above square, base past bottom -->
+  <path d="M204 62 L82 252 L326 252 Z" fill="none" stroke="#2b2b2b" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M204 74 L94 246 L318 244 Z" fill="none" stroke="#2b2b2b" stroke-width="2" stroke-linejoin="round" opacity="0.6"/>
 
-  <!-- flame -->
-  <path d="M32 20 C29 26 25 29 25 35 C25 40.5 28.1 44 32 44 C35.9 44 39 40.5 39 35 C39 32 37.5 30 36 31.5 C36.5 27 35 22.5 32 20 Z" fill="url(#f-icon-flame)"/>
+  <!-- sketchy circle, drawn as two overlapping arcs -->
+  <circle cx="204" cy="204" r="104" fill="#ffffff" stroke="#2b2b2b" stroke-width="5"/>
+  <circle cx="206" cy="202" r="102" fill="none" stroke="#2b2b2b" stroke-width="2" opacity="0.5"/>
+
+  <!-- trademark R -->
+  <circle cx="332" cy="118" r="15" fill="none" stroke="#2b2b2b" stroke-width="1.6"/>
+  <text x="332" y="124" font-family="Georgia, serif" font-size="15" fill="#2b2b2a" text-anchor="middle">R</text>
+
+  <!-- flame: three-tongue shape -->
+  <path d="M204 116
+           C 190 150, 176 172, 176 200
+           C 176 224, 190 242, 208 248
+           C 200 230, 202 210, 214 196
+           C 220 216, 214 230, 222 244
+           C 240 236, 250 216, 246 196
+           C 258 210, 260 228, 250 244
+           C 268 234, 276 212, 268 190
+           C 262 168, 244 158, 240 138
+           C 236 158, 224 162, 220 148
+           C 216 168, 200 160, 204 116 Z"
+        fill="url(#fsai-flame)"/>
+
+  <!-- FSAI text -->
+  <text x="204" y="352" font-family="Georgia, serif" font-weight="700" font-size="58"
+        fill="#e8503f" text-anchor="middle" letter-spacing="3">FSAI</text>
+
+  <!-- fading tricolor underline -->
+  <rect x="120" y="374" width="84" height="3" fill="url(#fsai-line-red)"/>
+  <rect x="204" y="374" width="84" height="3" fill="url(#fsai-line-green)"/>
+  <rect x="90" y="394" width="120" height="2.5" fill="url(#fsai-line-red)"/>
+  <rect x="204" y="394" width="120" height="2.5" fill="url(#fsai-line-green)"/>
 </svg>
